@@ -71,9 +71,48 @@ module.exports = class PetController{
 
     static async getAll(req, res){
 
-        const pets = await Pet.find().sort('-createdAt')
+        //pagination 
+        
+        const NumPage = req.query['page']
 
-        res.status(200).json({ pets : pets })
+        let page
+
+        let offset 
+
+        let next
+
+        let numberOfPages
+
+        const limitPerPage = 10
+
+
+        if(!NumPage || NumPage === 1){
+            page = 1
+            offset = 0 
+        }else{
+            page = parseInt(NumPage)
+            offset = (page - 1) * limitPerPage
+        }
+
+
+        const numOfPets = await Pet.count()
+
+
+        if(offset + 4 >= numOfPets){
+            next = false
+        }else{
+            next = true
+        }
+
+        numberOfPages = Math.ceil(numOfPets/limitPerPage)
+
+
+        console.log(numberOfPages)
+        
+
+        const pets = await Pet.find(null, null, { limit : limitPerPage, skip : offset}).sort('-createdAt')
+
+        res.status(200).json({ pets : pets, numberOfPages : numberOfPages, haveNextPage : next })
     }
 
     static async getAllUserPets(req, res){
