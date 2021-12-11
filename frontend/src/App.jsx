@@ -9,7 +9,9 @@ import { Home } from './pages/Home'
 
 //Components
 
-import { Navbar } from "./components/Navbar"
+import { Navbar } from './components/Navbar'
+import { Footer } from './components/Footer'
+import { Container } from './components/Container'
 
 
 
@@ -23,11 +25,15 @@ export const App = ()=>{
 
             <BrowserRouter>
                 <Navbar/>
-                <Routes>
-                    <Route path='/' exact element={<Home/>}/>
-                        
+                    <Container>
+                    <Routes>
+                        <Route path='/' exact element={<Home/>}/>
+                            
 
-                </Routes>
+                    </Routes>
+
+                    </Container>
+                <Footer/>
             </BrowserRouter>
         </>
 

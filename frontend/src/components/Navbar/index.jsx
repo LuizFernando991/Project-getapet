@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom'
 import * as Styled from './styles'
 
+import Logo from '../../images/logo.png'
 
 
 export const Navbar =()=>{
@@ -14,7 +15,12 @@ export const Navbar =()=>{
 
         <Styled.Nav>
 
-            <ul>
+            <Styled.Logo>
+                <img src={Logo} alt="Get A Pet" />
+                
+            </Styled.Logo>
+
+            <Styled.Menu>
                 <li>
                     <Link to="/">Home</Link>
                 </li>
@@ -24,7 +30,7 @@ export const Navbar =()=>{
                 <li>
                     <Link to="/register">Cadastrar</Link>
                 </li>
-            </ul>
+            </Styled.Menu>
 
         </Styled.Nav>
 
