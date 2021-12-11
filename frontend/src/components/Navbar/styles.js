@@ -7,7 +7,8 @@ export const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     padding: 1em 1.5em;
-    background-color: #fff438;
+    border-bottom: 1px solid #dff;
+    background: linear-gradient(90deg, rgba(241,0,142,1) 0%, rgba(255,244,56,0.7959558823529411) 100%);
     
 
 `

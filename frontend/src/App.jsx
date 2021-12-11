@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 //Routes 
 
 import { Home } from './pages/Home'
+import { Register } from './pages/Register'
+import { Login } from './pages/Login'
 
 
 //Components
@@ -29,6 +31,9 @@ export const App = ()=>{
                     <Routes>
                         <Route path='/' exact element={<Home/>}/>
                             
+                        <Route path='/register' exact element={<Register/>}/>
+
+                        <Route path='/login' exact element={<Login/>}/>
 
                     </Routes>
 
