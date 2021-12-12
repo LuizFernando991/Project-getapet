@@ -14,6 +14,7 @@ import { Login } from './pages/Login'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { Container } from './components/Container'
+import { Message } from './components/Message'
 
 
 
@@ -28,14 +29,15 @@ export const App = ()=>{
             <BrowserRouter>
                 <Navbar/>
                     <Container>
-                    <Routes>
-                        <Route path='/' exact element={<Home/>}/>
-                            
-                        <Route path='/register' exact element={<Register/>}/>
+                        <Message/>
+                        <Routes>
+                            <Route path='/' exact element={<Home/>}/>
+                                
+                            <Route path='/register' exact element={<Register/>}/>
 
-                        <Route path='/login' exact element={<Login/>}/>
+                            <Route path='/login' exact element={<Login/>}/>
 
-                    </Routes>
+                        </Routes>
 
                     </Container>
                 <Footer/>

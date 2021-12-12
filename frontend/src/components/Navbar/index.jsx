@@ -16,7 +16,7 @@ export const Navbar =()=>{
         <Styled.Nav>
 
             <Styled.Logo>
-                <img src={Logo} alt="Get A Pet" />
+                <Link to='/'><img src={Logo} alt="Get A Pet" /></Link>
                 
             </Styled.Logo>
 

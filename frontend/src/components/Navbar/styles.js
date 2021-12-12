@@ -40,11 +40,11 @@ export const Menu = styled.ul`
         cursor: pointer;
         transition: 0.5s;
         padding: 0.5em 0.8em;
-        border-radius: 3px;
+        border: 2px solid transparent;
     }
 
     a:hover{
-        background-color: #ff1493;
+        border-bottom: 3px solid #ff1493;
         color: #fff;
     }
 

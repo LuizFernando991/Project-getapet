@@ -41,7 +41,7 @@ export const ContainerLogin = styled.section`
     input[type='submit']{
         width: 100%;
         height: 50px;
-        background: linear-gradient(90deg, rgba(241,0,142,1) 0%, rgba(255,244,56,0.7959558823529411) 100%);
+        background: linear-gradient(90deg, rgba(241,0,142,0.9) 0%, rgba(255,244,56,0.7959558823529411) 100%);
         border: none;
         border-radius: 20px 3px 20px 3px;
         color: #fff;
@@ -60,6 +60,19 @@ export const ContainerLogin = styled.section`
     p {
         color: #000;
         margin-top: 20px;
+    }
+
+    .passIcon{
+        font-size: 20px;
+        position: relative;
+        top: -45px;
+        left: 425px;
+        cursor: pointer;
+    }
+
+
+    .passIcon:hover{
+        color: #111;
     }
 
 `
