@@ -8,7 +8,7 @@ export const useFlashMessage =()=>{
 
     const setFlashMessage =(msg, type)=>{
 
-        EventEmitter.emit('flash', {
+       EventEmitter.emit('flash', {
             message : msg,
             type : type,
 
@@ -16,5 +16,5 @@ export const useFlashMessage =()=>{
     }
 
 
-    return { setFlashMessage, Event }
+    return [ setFlashMessage ]
 }

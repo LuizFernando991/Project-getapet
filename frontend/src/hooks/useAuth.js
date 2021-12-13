@@ -1,6 +1,6 @@
 import api from '../helpers/api'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useFlashMessage } from './useFlashMessage'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,11 +11,23 @@ import { useNavigate } from 'react-router-dom'
 
 export const useAuth= ()=>{
 
-    const { setFlashMessage } = useFlashMessage()
+    const [ setFlashMessage ] = useFlashMessage()
 
     const [ authenticated  , setAuthenticated ] = useState(false)
 
     const navigate = useNavigate()
+
+
+    useEffect(()=>{
+        const token = localStorage.getItem('token')
+
+        if(token){
+            api.defaults.headers.Athorizarion = `Bearer ${JSON.parse(token)}`
+            setAuthenticated(true)
+        }
+    }, [])    
+
+
 
     const register= async (user)=>{
 
@@ -53,6 +65,6 @@ export const useAuth= ()=>{
 
     }
 
-    return {register}
+    return [register, authenticated]
 
 }
