@@ -14,27 +14,34 @@ export const Message =()=>{
     const [ message, setMessage ] = useState('')
     const [ type, setType ] = useState('')
 
+
     useEffect(()=>{
 
         EventEmitter.addListener('flash', ({message, type})=>{
             setIsActived(true)
             setMessage(message)
             setType(type)
-            
+
             setTimeout(()=>{
                 setIsActived(false)
-            }, 5000)
-
+            }, 1800)
+            
+           
+            
         })
-
-        return ()=>{EventEmitter.removeLister('flash')}
     }, [])
 
+
     return(
-        <Styled.Message isActived={isActived} type={type}>
-            {message}
-            <IoCloseSharp onClick={()=> setIsActived(false)} className='button'/>
-        </Styled.Message>
+        <>
+            {isActived && 
+                <Styled.Message isActived={isActived} type={type}>
+                    {message}
+                    <IoCloseSharp onClick={()=> setIsActived(false)} className='button'/>
+                </Styled.Message>
+            }
+        
+        </>
     )
 
 }

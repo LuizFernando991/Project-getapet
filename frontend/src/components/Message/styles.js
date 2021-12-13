@@ -1,4 +1,14 @@
-import styled, {css} from "styled-components";
+import styled, {css, keyframes} from "styled-components";
+
+const translateMessage = keyframes`
+
+    0%{ opacity : 0.6 }
+    100%{ opacity : 1 }
+
+
+
+
+`
 
 
 export const Message = styled.div` 
@@ -19,10 +29,6 @@ export const Message = styled.div`
     box-shadow: 0 0 0.3em #fff;
     
 
-    ${({isActived})=> css` 
-    
-        ${isActived ? '' : 'display : none;'}
-    `}
 
     ${({type})=> css`
 
@@ -44,6 +50,10 @@ export const Message = styled.div`
     .button:hover{
         color: #111;
     }
+
+    animation-name: ${translateMessage};
+    animation-duration: 0.3s;
+    animation: ease;
 
 `
 

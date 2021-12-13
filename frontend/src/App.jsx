@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 
 
 
@@ -26,7 +26,7 @@ export const App = ()=>{
 
         <>
 
-            <BrowserRouter>
+            
                 <Navbar/>
                     <Container>
                         <Message/>
@@ -41,7 +41,7 @@ export const App = ()=>{
 
                     </Container>
                 <Footer/>
-            </BrowserRouter>
+            
         </>
 
 

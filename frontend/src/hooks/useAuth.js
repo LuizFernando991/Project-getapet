@@ -1,8 +1,8 @@
 import api from '../helpers/api'
 
-import { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useState } from 'react'
 import { useFlashMessage } from './useFlashMessage'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -12,6 +12,10 @@ import { useFlashMessage } from './useFlashMessage'
 export const useAuth= ()=>{
 
     const { setFlashMessage } = useFlashMessage()
+
+    const [ authenticated  , setAuthenticated ] = useState(false)
+
+    const navigate = useNavigate()
 
     const register= async (user)=>{
 
@@ -24,8 +28,9 @@ export const useAuth= ()=>{
 
             const resData = data.data
 
+            await authUser(resData)
 
-            return resData
+
 
         }catch(err){
             msgText = err.response.data.message
@@ -34,6 +39,18 @@ export const useAuth= ()=>{
 
 
         setFlashMessage(msgText, msgType)
+    }
+
+    const authUser = async(data)=>{
+
+
+        setAuthenticated(true)
+
+        localStorage.setItem('token', JSON.stringify(data.token))
+
+        navigate('/')
+
+
     }
 
     return {register}
