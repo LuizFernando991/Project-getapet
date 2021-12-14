@@ -4,10 +4,17 @@ import * as Styled from './styles'
 
 import Logo from '../../images/logo.png'
 
+import { useContext } from 'react'
+
+
+// context
+
+import { UserContext } from '../../contexts/UserContext'
+
 
 export const Navbar =()=>{
 
-
+    const { authenticated } = useContext(UserContext)
 
 
 
@@ -21,15 +28,27 @@ export const Navbar =()=>{
             </Styled.Logo>
 
             <Styled.Menu>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/login">Entrar</Link>
-                </li>
-                <li>
-                    <Link to="/register">Cadastrar</Link>
-                </li>
+                
+                {authenticated ? 
+                    (
+                    <div>Logado</div>
+                    ) 
+                    : 
+                    (
+                    <>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/login">Entrar</Link>
+                        </li>
+                        <li>
+                            <Link to="/register">Cadastrar</Link>
+                        </li>
+                    </>
+                    )
+                
+                }
             </Styled.Menu>
 
         </Styled.Nav>

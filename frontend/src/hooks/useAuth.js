@@ -65,6 +65,22 @@ export const useAuth= ()=>{
 
     }
 
-    return [register, authenticated]
+
+    const logout =()=>{
+
+        const msgText = 'Logout realizado com sucesso'
+        const msgType = 'success'
+
+        setAuthenticated(false)
+        localStorage.removeItem('token')
+        api.defaults.headers.Athorizarion = undefined
+
+        navigate('/')
+
+        setFlashMessage(msgText, msgType)
+
+    }
+
+    return [register, logout, authenticated]
 
 }
