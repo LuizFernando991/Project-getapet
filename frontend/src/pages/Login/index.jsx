@@ -1,6 +1,7 @@
 import * as Styled from './styles'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { UserContext } from '../../contexts/UserContext'
 
 import PatasImg from '../../images/patas.png'
 
@@ -11,9 +12,17 @@ import { IoEyeOutline, IoEyeOffOutline } from 'react-icons/io5'
 export const Login = ()=>{
 
     const [showPassword, setShowPassword] = useState(false)
+    const [ user, setUser ] = useState({})
 
-    const handleOnChange =()=>{
+    const { login } = useContext(UserContext)
 
+    const handleOnChange =(e)=>{
+        setUser({...user, [ e.target.name] : e.target.value})
+    }
+
+    const handleSubmit =(e)=>{
+        e.preventDefault()
+        login(user)
     }
 
 
@@ -23,7 +32,7 @@ export const Login = ()=>{
         <Styled.Container>
             <Styled.ContainerLogin showPassword = { showPassword }>
                 <h1>Entrar</h1>
-                <form>
+                <form onSubmit={handleSubmit}>
                     
                     <Input text='Email' type='email' name='email' placeholder='Digite seu email' handleOnChange={handleOnChange}/>
                     <Input text='Senha' type={showPassword? 'text':'password'} name='password' placeholder='Digite uma senha' handleOnChange={handleOnChange}/>
