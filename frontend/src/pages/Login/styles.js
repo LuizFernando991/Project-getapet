@@ -4,7 +4,7 @@ export const Container = styled.div`
 
 
     min-height: 100vh;
-    padding-top: 10%;
+    padding-top: 6%;
     background: linear-gradient(90deg, rgba(241,0,142,1) 0%, rgba(255,244,56,0.7959558823529411) 100%);
     display: flex;
     flex-direction: column;

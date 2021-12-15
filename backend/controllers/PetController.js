@@ -105,9 +105,6 @@ module.exports = class PetController{
         }
 
         numberOfPages = Math.ceil(numOfPets/limitPerPage)
-
-
-        console.log(numberOfPages)
         
 
         const pets = await Pet.find(null, null, { limit : limitPerPage, skip : offset}).sort('-createdAt')

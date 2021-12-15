@@ -10,7 +10,7 @@ export const UserContext = createContext()
 
 export const UserContextProvider = ({children})=>{
 
-    const [ register, logout, login, authenticated ] = useAuth()
+    const [ register, logout, login, edit, authenticated ] = useAuth()
 
 
 
@@ -18,7 +18,7 @@ export const UserContextProvider = ({children})=>{
 
 
     return(
-        <UserContext.Provider value={{register, logout, login, authenticated}}>{children}</UserContext.Provider>
+        <UserContext.Provider value={{register, logout, login, edit, authenticated}}>{children}</UserContext.Provider>
 
 
     )

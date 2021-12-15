@@ -6,7 +6,6 @@ function validation(req, res, next){
 
     const { name, email, phone, password, confirmpassword } = req.body
 
-    console.log(req.body)
     
     
     if(!name){

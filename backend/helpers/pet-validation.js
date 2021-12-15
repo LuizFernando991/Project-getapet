@@ -2,11 +2,9 @@
 
 const petValidation = (req, res, next)=>{
 
-    console.log(req.body)
 
     const { name, age, weight, color } = req.body
 
-    console.log(name)
 
     if(!name){
         res.status(422).json({ message : "O nome é obrigatório!"})
