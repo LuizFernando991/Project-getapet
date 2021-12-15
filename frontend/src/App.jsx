@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom"
 import { Home } from './pages/Home'
 import { Register } from './pages/Register'
 import { Login } from './pages/Login'
+import { Profile } from './pages/Profile'
 
 
 //Components
@@ -36,6 +37,8 @@ export const App = ()=>{
                             <Route path='/register' exact element={<Register/>}/>
 
                             <Route path='/login' exact element={<Login/>}/>
+
+                            <Route path='/profile' exact element={<Profile/>}/>
 
                         </Routes>
 
