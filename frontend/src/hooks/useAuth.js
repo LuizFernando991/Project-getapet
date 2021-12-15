@@ -47,6 +47,8 @@ export const useAuth= ()=>{
 
 
         setFlashMessage(msgText, msgType)
+
+        
     }
 
     const authUser = async(data)=>{

@@ -21,7 +21,7 @@ app.use(cors({ credentials : true, origin : 'http://localhost:3000'}))
 
 //Public folder
 
-app.use(express.static('puclic'))
+app.use(express.static('public'))
 
 //Routes
 

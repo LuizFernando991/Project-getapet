@@ -2,25 +2,42 @@ import styled from "styled-components";
 
 
 
+
 export const Container = styled.div` 
 
 
-    min-height: 100vh;
-    padding-top: 6%;
-    background: linear-gradient(90deg, rgba(241,0,142,1) 0%, rgba(255,244,56,0.7959558823529411) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+min-height: 100vh;
+padding-top: 6%;
+background: linear-gradient(90deg, rgba(241,0,142,1) 0%, rgba(255,244,56,0.7959558823529411) 100%);
+display: flex;
+flex-direction: column;
+align-items: center;
 
-    img{
-        margin-top: -240px;
-        margin-left: 500px;
-        z-index: 1;
-    }
+.patas{
+    margin-top: -240px;
+    margin-left: 500px;
+    z-index: 1;
+}
 
-    
+
 `
 
+
+export const UserImage = styled.div`
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+ .img-profile{
+     
+    max-width: 200px;
+    height: 200px;
+    border-radius: 1000000px;
+ }
+
+
+`
 export const ContainerEdit = styled.section` 
 
     

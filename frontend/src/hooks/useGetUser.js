@@ -3,7 +3,7 @@ import api from '../helpers/api'
 import { useCallback } from 'react'
 
 
-export const useGetApi= ()=>{
+export const useGetUser= ()=>{
 
 
     const getCheckUser = useCallback(async()=>{

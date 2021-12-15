@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { UserContext } from '../../contexts/UserContext'
-import { useGetApi} from '../../hooks/useGetUser'
+import { useGetUser} from '../../hooks/useGetUser'
 
 
 import { IoEyeOutline, IoEyeOffOutline } from 'react-icons/io5'
@@ -13,9 +13,10 @@ import * as Styled from './styles'
 export const Profile = ()=>{
 
     const [user, setUser] = useState({})
+    const [preview, setPreview] = useState('')
     const [showPassword, setShowPassword] = useState(false)
     
-    const [getCheckUser] = useGetApi()
+    const [getCheckUser] = useGetUser()
 
     const { edit } = useContext(UserContext)
 
@@ -25,6 +26,7 @@ export const Profile = ()=>{
     }
 
     const onFileChange = (e)=>{
+        setPreview(e.target.files[0])
         setUser({...user, [e.target.name] : e.target.files[0]})
     }
 
@@ -42,7 +44,12 @@ export const Profile = ()=>{
         <Styled.Container>
             <Styled.ContainerEdit>
                 <h1>Editar usuário</h1>
-                <h1>Image preview</h1>
+                {(user.image || preview) && (
+                    <Styled.UserImage>
+                        <img className='img-profile' alt={user.name} src={preview ? URL.createObjectURL(preview) : `http://localhost:5000/images/users/${user.image}`} />
+                    </Styled.UserImage>
+
+                )}
                 <form onSubmit={handleSubmit} >
                     <Input text='Nome' type='text' name='name' placeholder='Digite seu nome'  handleOnChange={handleChange} value={user.name || ''} />
                     <Input text='Telefone' type='text' name='phone' placeholder='Digite o seu telefone'  handleOnChange={handleChange} value={user.phone || ''} />
@@ -55,7 +62,7 @@ export const Profile = ()=>{
                 </form>
             
             </Styled.ContainerEdit>
-            <img src={PatasImg} alt='patas' />
+            <img className='patas' src={PatasImg} alt='patas' />
         </Styled.Container>
     )
 }
