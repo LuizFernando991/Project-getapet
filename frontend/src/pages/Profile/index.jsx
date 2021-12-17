@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext, useRef } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 import { useGetUser} from '../../hooks/useGetUser'
 
@@ -12,6 +12,7 @@ import * as Styled from './styles'
 
 export const Profile = ()=>{
 
+    const isMounted = useRef(true)
     const [user, setUser] = useState({})
     const [preview, setPreview] = useState('')
     const [showPassword, setShowPassword] = useState(false)
@@ -37,13 +38,20 @@ export const Profile = ()=>{
     }
 
     useEffect(()=>{
-        getCheckUser().then(r => setUser(r))
+        getCheckUser().then(r => {
+            if(isMounted.current){
+                setUser(r)
+            }
+        })
+
+        return ()=> {isMounted.current = false}
     }, [ getCheckUser])
 
     return(
         <Styled.Container>
             <Styled.ContainerEdit>
-                <h1>Editar usuário</h1>
+                <h1>Editar Perfil</h1>
+                {process.env.REACT_APP_API}
                 {(user.image || preview) && (
                     <Styled.UserImage>
                         <img className='img-profile' alt={user.name} src={preview ? URL.createObjectURL(preview) : `http://localhost:5000/images/users/${user.image}`} />

@@ -1,10 +1,10 @@
 
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Menu } from '../../components/Menu'
+import Logo from '../../images/logo.png'
 import * as Styled from './styles'
 
-import Logo from '../../images/logo.png'
-
-import { useContext } from 'react'
 
 
 // context
@@ -31,7 +31,7 @@ export const Navbar =()=>{
                 
                 {authenticated ? 
                     (
-                    <div>Logado</div>
+                    <Menu/>
                     ) 
                     : 
                     (

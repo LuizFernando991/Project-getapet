@@ -8,6 +8,7 @@ import { Home } from './pages/Home'
 import { Register } from './pages/Register'
 import { Login } from './pages/Login'
 import { Profile } from './pages/Profile'
+import { Mypets } from './pages/Mypets'
 
 
 //Components
@@ -39,6 +40,8 @@ export const App = ()=>{
                             <Route path='/login' exact element={<Login/>}/>
 
                             <Route path='/profile' exact element={<Profile/>}/>
+
+                            <Route path='/mypets' exact element={<Mypets/>}/>
 
                         </Routes>
 
