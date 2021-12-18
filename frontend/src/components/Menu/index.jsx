@@ -4,6 +4,7 @@ import { useGetUser } from '../../hooks/useGetUser'
 import { UserContext } from '../../contexts/UserContext'
 import UserImage from '../../images/userProfileDefaut.jpg'
 
+
 import * as Styled from './styles'
 
 

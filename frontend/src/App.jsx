@@ -17,6 +17,7 @@ import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { Container } from './components/Container'
 import { Message } from './components/Message'
+import { CreatePet } from "./pages/CreatePet"
 
 
 
@@ -42,6 +43,9 @@ export const App = ()=>{
                             <Route path='/profile' exact element={<Profile/>}/>
 
                             <Route path='/mypets' exact element={<Mypets/>}/>
+
+                            <Route path='/newpet' exact element={<CreatePet/>}/>
+
 
                         </Routes>
 

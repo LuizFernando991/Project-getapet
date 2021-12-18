@@ -7,6 +7,8 @@ export const Input = styled.div`
     flex-direction: column;
     margin-bottom: 1em;
     color: #f1008e;
+    text-align: center;
+    margin-top: 5px;
 
     label{
         margin-bottom: 0.3em;
@@ -20,6 +22,7 @@ export const Input = styled.div`
         padding: 0.7em;
         border: 3px solid #f1008e;;
         border-radius: 5px;
+        text-align: center;
 
     }
 

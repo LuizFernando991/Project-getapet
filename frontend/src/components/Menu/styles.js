@@ -9,12 +9,15 @@ export const Menu = styled.div`
     border-radius: 10000px;
     background-color: #eee;
     
+  
+    
 
     img{
         width: 50px;
         height: 50px;
         border-radius : 10000px;
         cursor: pointer;
+        
     }
 
 

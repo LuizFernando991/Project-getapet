@@ -48,4 +48,8 @@ export const Menu = styled.ul`
         color: #fff;
     }
 
+    .add-new-pet:hover{
+        border: 2px solid transparent;
+    }
+
 `

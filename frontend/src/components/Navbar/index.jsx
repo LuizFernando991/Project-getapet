@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu } from '../../components/Menu'
 import Logo from '../../images/logo.png'
+import { IoAddCircleOutline } from 'react-icons/io5'
 import * as Styled from './styles'
 
 
@@ -31,7 +32,11 @@ export const Navbar =()=>{
                 
                 {authenticated ? 
                     (
-                    <Menu/>
+                    <>   
+                        <Link className='add-new-pet' to='/newpet'><IoAddCircleOutline style={{color : '#fff', fontSize : '50px', marginRight : '30px', cursor : 'pointer'}}/></Link>
+                        <Menu/>
+                    </>
+
                     ) 
                     : 
                     (
