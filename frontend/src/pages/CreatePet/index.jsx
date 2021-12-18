@@ -23,7 +23,7 @@ export const CreatePet = ()=>{
 
     const handleOnSubmit = (e)=>{
         e.preventDefault()
-        console.log(pet)
+        
     }
 
 
@@ -35,7 +35,7 @@ export const CreatePet = ()=>{
                 <form onSubmit={handleOnSubmit}>
                     <Input text='Nome' type='text' name='name' placeholder='Digite o nome do pet' handleOnChange={handleOnChange}/>
                     <div className='sub-form'>
-                        <Input text='Idade' type='number' name='age' placeholder='Digite a idade do pet' handleOnChange={handleOnChange}/>
+                        <Input  text='Idade' type='number' name='age' placeholder='Digite a idade do pet' handleOnChange={handleOnChange}/>
                         <Input text='Peso' type='number' name='weight' placeholder='Digite o peso do pet' handleOnChange={handleOnChange}/>
                         <Input text='Cor' type='text' name='color' placeholder='Digite a cor do pet' handleOnChange={handleOnChange}/>
                     </div>
