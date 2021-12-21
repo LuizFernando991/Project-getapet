@@ -32,7 +32,6 @@ export const Menu = styled.ul`
     display: flex;
     align-items: center;
     list-style: none;
-
     li, a{
         text-decoration: none;
         color: #f1008e;
@@ -46,6 +45,24 @@ export const Menu = styled.ul`
     a:hover{
         border-bottom: 3px solid #ff1493;
         color: #fff;
+    }
+
+    .add-new-pet{
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-right: 30px;
+    }
+
+    .add-new-pet svg{
+        color: #fff;
+        font-size: 40px;
+    }
+    
+    .add-new-pet:hover{
+        opacity: 0.7;
     }
 
     .add-new-pet:hover{

@@ -85,7 +85,7 @@ export const ContainerEdit = styled.section`
     .passIcon{
         font-size: 20px;
         position: relative;
-        top: -130px;
+        top: -210px;
         left: 425px;
         cursor: pointer;
     }

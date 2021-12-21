@@ -33,7 +33,10 @@ export const Navbar =()=>{
                 {authenticated ? 
                     (
                     <>   
-                        <Link className='add-new-pet' to='/newpet'><IoAddCircleOutline style={{color : '#fff', fontSize : '50px', marginRight : '30px', cursor : 'pointer'}}/></Link>
+                        <Link className='add-new-pet' to='/newpet'>
+                            <IoAddCircleOutline />
+                            <p>New Pet</p>
+                        </Link>
                         <Menu/>
                     </>
 

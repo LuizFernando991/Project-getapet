@@ -9,6 +9,7 @@ export const Menu = styled.div`
     border-radius: 10000px;
     background-color: #eee;
     
+    
   
     
 
@@ -32,6 +33,7 @@ export const DropDownMenu = styled.div`
     width: 150px;
     border-radius: 20px 3px 20px 3px;
     padding: 0.35em;
+    box-shadow: 0 0 0.1em #111;
 
     ul{
         width: 100%;

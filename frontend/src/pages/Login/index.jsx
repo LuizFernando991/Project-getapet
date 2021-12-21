@@ -35,7 +35,7 @@ export const Login = ()=>{
                 <form onSubmit={handleSubmit}>
                     
                     <Input text='Email' type='email' name='email' placeholder='Digite seu email' handleOnChange={handleOnChange}/>
-                    <Input text='Senha' type={showPassword? 'text':'password'} name='password' placeholder='Digite uma senha' handleOnChange={handleOnChange}/>
+                    <Input text='Senha' type={showPassword? 'text':'password'} name='password' placeholder='Digite sua senha' handleOnChange={handleOnChange}/>
                     
                     {showPassword? <IoEyeOutline onClick={()=>{setShowPassword(!showPassword)}} className='passIcon'/> : <IoEyeOffOutline className='passIcon' onClick={()=>{setShowPassword(!showPassword)}}/>}
                     
