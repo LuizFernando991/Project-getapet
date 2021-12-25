@@ -1,14 +1,10 @@
 import { useState, useEffect, useContext, useRef } from 'react'
 import { UserContext } from '../../contexts/UserContext'
 import { useGetUser} from '../../hooks/useGetUser'
-
-
 import { IoEyeOutline, IoEyeOffOutline } from 'react-icons/io5'
 import { Input } from '../../components/Form/Input'
 import PatasImg from '../../images/patas.png'
-
 import * as Styled from './styles'
-
 
 export const Profile = ()=>{
 
@@ -56,7 +52,6 @@ export const Profile = ()=>{
                     <Styled.UserImage>
                         <img className='img-profile' alt={user.name} src={preview ? URL.createObjectURL(preview) : `http://localhost:5000/images/users/${user.image}`} />
                     </Styled.UserImage>
-
                 )}
                 <form onSubmit={handleSubmit} >
                     <Input text='Nome' type='text' name='name' placeholder='Digite seu nome'  handleOnChange={handleChange} value={user.name || ''} />

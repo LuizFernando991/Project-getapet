@@ -63,7 +63,6 @@ export const useAuth= ()=>{
 
     }
 
-
     const logout =()=>{
 
         let msgText = 'Logout realizado com sucesso'
@@ -108,7 +107,7 @@ export const useAuth= ()=>{
         let formData = new FormData()
 
         Object.keys(user).forEach((key) =>
-            formData.append(key, user[key]),
+            formData.append(key, user[key])
         )
 
         const data = await api

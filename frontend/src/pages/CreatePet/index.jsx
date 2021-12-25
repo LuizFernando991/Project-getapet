@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import { usePet } from '../../hooks/usePet'
 import PatasImg from '../../images/patas.png'
 import { Input } from '../../components/Form/Input'
 import * as Styled from './styles'
@@ -10,6 +10,7 @@ export const CreatePet = ()=>{
 
 
     const [ pet, setPet ] = useState({})
+    const { createPet } = usePet()
 
     const handleOnChange = (e)=>{
         setPet({...pet, [e.target.name] : e.target.value})
@@ -23,6 +24,7 @@ export const CreatePet = ()=>{
 
     const handleOnSubmit = (e)=>{
         e.preventDefault()
+        createPet(pet)
         
     }
 
