@@ -205,12 +205,16 @@ module.exports = class PetController{
             updatedImages.push(image.filename)
         })
 
-        const updatedData = {
+        let updatedData = {
             name : name,
             age : age,
             weight : weight,
             color : color,
             available : available
+        }
+
+        if(updatedImages.length > 0){
+            updatedData = { ...updatedData, images : updatedImages}
         }
 
         // check if id is valid

@@ -13,6 +13,7 @@ import { Footer } from './components/Footer'
 import { Container } from './components/Container'
 import { Message } from './components/Message'
 import { CreatePet } from "./pages/CreatePet"
+import { EditPet } from "./pages/EditPet"
 
 
 export const App = ()=>{
@@ -36,6 +37,9 @@ export const App = ()=>{
                             }
                             {authenticated &&
                                 <Route path='/newpet' exact element={<CreatePet/>}/>  
+                            }
+                            {authenticated &&
+                                <Route path='/editpet/:id' element={<EditPet/>}/>  
                             }
                         </Routes>
                     </Container>

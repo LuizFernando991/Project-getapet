@@ -19,7 +19,7 @@ export const PetCardMypets = ({pet, onClick})=>{
                 <button>Concluir adoção</button>
             }
             <Styled.ButtonContainer>
-                <Link to={`/pet/edit/${pet._id}`}>Editar</Link>
+                <Link to={`/editpet/${pet._id}`}>Editar</Link>
                 <button onClick={()=>onClick(pet._id)}>Excluir</button>
             </Styled.ButtonContainer>
         </Styled.Card>
