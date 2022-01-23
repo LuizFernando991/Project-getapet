@@ -22,6 +22,8 @@ router.post('/create', verifyToken, imageUpload.array('images'), petValidation, 
 
 router.get('/', PetController.getAll)
 
+router.get('/newpets', PetController.getNewPets)
+
 router.get('/mypets', verifyToken, PetContoller.getAllUserPets)
 
 router.get('/myadoptions', verifyToken, PetController.getAllUserAdoptions)

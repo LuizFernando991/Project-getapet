@@ -10,7 +10,7 @@ import * as Styled from './styles'
 export const EditPet = ()=>{
 
 
-    const [ pet, setPet ] = useState({})
+    const [ pet, setPet ] = useState('')
     const { editPet,  getPetById} = usePet()
     const { id } = useParams()
 
@@ -41,11 +41,11 @@ export const EditPet = ()=>{
             <Styled.ContainerRegister>
                 <h1>Editar Pet</h1>
                 <form onSubmit={handleOnSubmit}>
-                    <Input text='Nome' type='text' name='name' placeholder='Digite o nome do pet' handleOnChange={handleOnChange} value={pet.name}/>
+                    <Input text='Nome' type='text' name='name' placeholder='Digite o nome do pet' handleOnChange={handleOnChange} value={pet.name || ''}/>
                     <div className='sub-form'>
-                        <Input  text='Idade' type='number' name='age' placeholder='Digite a idade do pet' handleOnChange={handleOnChange} value={pet.age}/>
-                        <Input text='Peso (Kg)' type='number' name='weight' placeholder='Digite o peso do pet' handleOnChange={handleOnChange} value={pet.weight}/>
-                        <Input text='Cor' type='text' name='color' placeholder='Digite a cor do pet' handleOnChange={handleOnChange} value={pet.color}/>
+                        <Input  text='Idade' type='number' name='age' placeholder='Digite a idade do pet' handleOnChange={handleOnChange} value={pet.age || ''}/>
+                        <Input text='Peso (Kg)' type='number' name='weight' placeholder='Digite o peso do pet' handleOnChange={handleOnChange} value={pet.weight || ''}/>
+                        <Input text='Cor' type='text' name='color' placeholder='Digite a cor do pet' handleOnChange={handleOnChange} value={pet.color || ''}/> {/*  || '' serve para corrigir o bug do undefined */}
                     </div>
                     <Input text='Fotos do pet ' type = 'file' name='images' multiple={'multiple'} handleOnChange={OnFileChange}/>
                     <input type="submit" value='Salvar'/>
@@ -54,8 +54,6 @@ export const EditPet = ()=>{
             </Styled.ContainerRegister>
             <img src={PatasImg} alt='patas' />
         </Styled.Container>
-
-
 
     )
 }

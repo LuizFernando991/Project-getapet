@@ -22,6 +22,20 @@ export const usePet = ()=>{
         return (pet.data.pet)
     }, [])
 
+    const getAllPets = useCallback(async(page)=>{
+        
+        const pets = await api.get(`/pets?page=${page}`)
+        return (pets.data.pets)
+    }, [])
+
+    const getNewPets = useCallback(async(id)=>{
+        
+        const pet = await api.get(`/pets/newpets`)
+
+
+        return (pet.data.pets)
+    }, [])
+
     const createPet = async (pet)=>{
         let msgType = 'success'
 
@@ -116,5 +130,5 @@ export const usePet = ()=>{
 
     }
 
-    return { createPet, removePet, getPetById, editPet }
+    return { createPet, removePet, getPetById, editPet, getNewPets, getAllPets }
 }

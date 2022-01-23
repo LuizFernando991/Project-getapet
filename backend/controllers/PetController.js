@@ -112,6 +112,13 @@ module.exports = class PetController{
         res.status(200).json({ pets : pets, numberOfPages : numberOfPages, haveNextPage : next })
     }
 
+    static async getNewPets(req, res){
+
+        const pets = await Pet.find(null, null, { limit : 5}).sort('-createdAt')
+        
+        res.status(200).json({ pets : pets })
+    }
+
     static async getAllUserPets(req, res){
 
         const token = getToken(req)
