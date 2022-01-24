@@ -102,7 +102,7 @@ export const useAuth= ()=>{
 
     const edit = async(user)=>{
 
-        let msgType = 'sucess'
+        let msgType = 'success'
 
         let formData = new FormData()
 

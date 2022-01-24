@@ -32,6 +32,12 @@ export const Container = styled.div`
     }
 
 `
+export const H1 = styled.h1` 
+    margin-left: 20px;
+    color: #f6586f;
+    font-weight: bold;
+
+`
 
 export const SliderContainer = styled.div` 
     width: 100000000px;
@@ -69,9 +75,22 @@ export const NewPetContainer = styled.a`
 
 export const AllPetsContainer = styled.section` 
 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
 
+`
 
+export const NoPets = styled.div` 
 
+    width: 100%;
+    margin: 250px auto;
+    text-align: center;
+
+    h1{
+        color: #f6586f;
+    }
 
 `
 

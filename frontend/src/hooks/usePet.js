@@ -25,7 +25,7 @@ export const usePet = ()=>{
     const getAllPets = useCallback(async(page)=>{
         
         const pets = await api.get(`/pets?page=${page}`)
-        return (pets.data.pets)
+        return (pets.data)
     }, [])
 
     const getNewPets = useCallback(async(id)=>{

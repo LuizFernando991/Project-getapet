@@ -99,9 +99,9 @@ module.exports = class PetController{
 
 
         if(offset + 4 >= numOfPets){
-            next = false
-        }else{
             next = true
+        }else{
+            next = false
         }
 
         numberOfPages = Math.ceil(numOfPets/limitPerPage)

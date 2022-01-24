@@ -40,7 +40,7 @@ export const Mypets =()=>{
                     pets.map(pet => <PetCardMypets onClick={handleOnDeleteClick} key={pet._id} pet={pet}/>)
                 ) 
                 :
-                <p>'Nenhum pet'</p>
+                <p>Você não tem pets cadastrados!</p>
                 }
                 
             </Styled.MyPetsContainer>

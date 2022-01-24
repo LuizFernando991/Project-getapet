@@ -6,6 +6,7 @@ export const Card = styled.div`
     width: 240px;
     height: 320px;
     margin-right: 30px;
+    margin-top: 20px;
     background: linear-gradient(180deg, rgba(241,0,142,0.6) 40%, rgba(241,0,142,0.3) 100%);
     display: flex;
     flex-direction: column;
