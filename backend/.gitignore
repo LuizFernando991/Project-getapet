@@ -1,3 +1,3 @@
-public/images/pets
+public/images/pets/**
 
-public/images/users
+public/images/users/**
