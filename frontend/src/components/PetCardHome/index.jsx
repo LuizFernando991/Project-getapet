@@ -13,7 +13,7 @@ export const PetCardHome = ({pet})=>{
                     <h3>{pet.name}</h3>
                     <p>Idade: {pet.age}</p>
                 </div>
-                <Link to="/">Ver Mais</Link>
+                <Link to={`/pet/${pet._id}`}>Ver Mais</Link>
             </Styled.CardContainer>
         </>
     )

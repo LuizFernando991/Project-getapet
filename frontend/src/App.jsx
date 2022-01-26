@@ -7,6 +7,7 @@ import { Register } from './pages/Register'
 import { Login } from './pages/Login'
 import { Profile } from './pages/Profile'
 import { Mypets } from './pages/Mypets'
+import { ShowPet } from './pages/ShowPet'
 //Components
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
@@ -28,6 +29,7 @@ export const App = ()=>{
                         <Routes>
                             <Route path='/' exact element={<Home/>}/>                                
                             <Route path='/register' exact element={<Register/>}/>
+                            <Route path= '/pet/:id' element={<ShowPet/>}/>
                             <Route path='/login' exact element={<Login/>}/>
                             {authenticated &&
                                 <Route path='/profile' exact element={<Profile/>}/>

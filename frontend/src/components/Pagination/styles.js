@@ -20,10 +20,10 @@ export const Ul = styled.ul`
     li button{
         border: none;
         background-color: #f1008e;
-        padding: 20px;
+        padding: 12px;
         border-radius: 9999px;
         color: #fff;
-        font-size: 1.2em;
+        font-size: 1.0em;
         font-weight: bold;
         cursor: pointer;
     }
@@ -34,7 +34,7 @@ export const Ul = styled.ul`
 
     .selected{
         color: #f1008e;
-        padding: 18px;
+        padding: 10px;
         background-color: #fff;
         border: 2px solid #f1008e;
     }

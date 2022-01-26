@@ -1,3 +1,10 @@
 # Project-getapet
 
-Projeto full stack com node.js, mongodb, react.js
+Projeto implementando o backend junto ao frontend
+
+Tecnologias usadas: 
+
+-Node.js/Express na construção de API
+-Moongose para gerenciamento e comunicação com o banco de dados
+-React.js para o frontend
+-Axios, Styled-Components, react-icons foram usados como bibliotecas no projeto
