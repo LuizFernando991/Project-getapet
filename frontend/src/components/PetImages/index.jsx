@@ -27,15 +27,17 @@ export const PetImages = ({pet})=>{
     }
 
     const handleDownArrowClick = ()=>{
-        
         if(slider < maxSlider){
             setSlider(r => r+112)
         }
     }
 
-    const handleOnPreviewImageClick = (img)=>{
-
-        setMainImg(img)
+    const handleOnPreviewImageClick = (imagem)=>{
+        // Logic auto scroll when user cick directly in image that is out of current scroll
+        setMainImg(imagem)
+        if( (((img.indexOf(imagem))-2)*112 !== slider) &&  img.indexOf(imagem) > 2){
+            setSlider(((img.indexOf(imagem))-2)*112)
+        }
     }
     
     return(
@@ -44,13 +46,13 @@ export const PetImages = ({pet})=>{
                 { img.length > 3 ? <Styled.Arrows><IoChevronUpSharp onClick={handleUpArrowClick} /></Styled.Arrows> : ''}
                 <Styled.Images>
                     <Styled.ImageSlider slider={slider}>
-                        {img.length ? img.map((img, index)=> <img key={index} onClick={()=>handleOnPreviewImageClick(img)} src={`http://localhost:5000/images/pets/${img}`} alt={img} />) : ''}
+                        {img.length ? img.map((img, index)=> <img key={index} onClick={()=>handleOnPreviewImageClick(img)} src={`${process.env.REACT_APP_API}/images/pets/${img}`} alt={img} />) : ''}
                     </Styled.ImageSlider>
                 </Styled.Images>
                 { img.length > 3 ? <Styled.Arrows onClick={handleDownArrowClick} ><IoChevronDownSharp/></Styled.Arrows> : ''}
             </Styled.PreviewImageContainer>
             <Styled.MainImage>
-                {img.length > 0 ? <img src={`http://localhost:5000/images/pets/${mainImg}`} alt={mainImg} /> : ''}
+                {img.length > 0 ? <img src={`${process.env.REACT_APP_API}/images/pets/${mainImg}`} alt={mainImg} /> : ''}
             </Styled.MainImage>
         </Styled.ImagesContainer>
     )

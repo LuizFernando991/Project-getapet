@@ -47,10 +47,9 @@ export const Profile = ()=>{
         <Styled.Container>
             <Styled.ContainerEdit>
                 <h1>Editar Perfil</h1>
-                {process.env.REACT_APP_API}
                 {(user.image || preview) && (
                     <Styled.UserImage>
-                        <img className='img-profile' alt={user.name} src={preview ? URL.createObjectURL(preview) : `http://localhost:5000/images/users/${user.image}`} />
+                        <img className='img-profile' alt={user.name} src={preview ? URL.createObjectURL(preview) : `${process.env.REACT_APP_API}/images/users/${user.image}`} />
                     </Styled.UserImage>
                 )}
                 <form onSubmit={handleSubmit} >

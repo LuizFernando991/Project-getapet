@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
-import * as Styled from './styles'
+import { useNavigate } from 'react-router-dom'
 import { IoChevronForwardSharp, IoChevronBackSharp } from 'react-icons/io5'
 import { usePet } from '../../hooks/usePet'
 import { PetCardHome } from '../../components/PetCardHome'
 import { Pagination } from '../../components/Pagination'
+import * as Styled from './styles'
 
 export const Home = ()=> {
 
@@ -13,6 +14,7 @@ export const Home = ()=> {
   const [ allPets, setAllPets ] = useState([])
   const [ numberOfPages, setNumberOfPages ] = useState(0)
   const isMounted = useRef(true)
+  const navigate = useNavigate()
 
   const { getNewPets, getAllPets } = usePet()
 
@@ -49,13 +51,17 @@ export const Home = ()=> {
     }
   }
 
+  const handleOnSliderClick = (id)=>{
+    navigate(`/pet/${id}`)
+  }
+
   if(allPets.length > 0){
     return(
       <>
       <Styled.Container>
         <Styled.SliderContainer slider={slider}>
           { newPets.length > 0 ? 
-          newPets.map( pet => <Styled.NewPetContainer img={`url(http://localhost:5000/images/pets/${pet.images[0]})`} key={pet._id}><h1>{pet.name}, {pet.age} {pet.age > 1 ? 'anos' : 'ano'}</h1></Styled.NewPetContainer>) 
+          newPets.map( pet => <Styled.NewPetContainer onClick={()=>handleOnSliderClick(pet._id)} img={`url(${process.env.REACT_APP_API}/images/pets/${pet.images[0]})`} key={pet._id}><h1>{pet.name}, {pet.age} {pet.age > 1 ? 'anos' : 'ano'}</h1></Styled.NewPetContainer>) 
           :
           <p>Não há pets</p>
           

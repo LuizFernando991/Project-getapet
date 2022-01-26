@@ -20,11 +20,15 @@ export const ShowPet = ()=>{
         return ()=>{ isMounted.current = false }
     }, [getPetById, id])
 
-    console.log(pet)
 
     return(
         <Styled.PetContainer>
             <PetImages pet={pet} />
+            <Styled.PetInformationContainer>
+                <Styled.PetInformation>
+
+                </Styled.PetInformation>
+            </Styled.PetInformationContainer>
         </Styled.PetContainer>
     )
 }

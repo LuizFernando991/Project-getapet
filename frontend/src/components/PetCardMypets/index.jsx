@@ -9,7 +9,7 @@ export const PetCardMypets = ({pet, onClick})=>{
 
     return (
         <Styled.Card>
-            <img src={`http://localhost:5000/images/pets/${pet.images[0]}`} alt={pet.name} />
+            <img src={`${process.env.REACT_APP_API}/images/pets/${pet.images[0]}`} alt={pet.name} />
 
             <h2>{pet.name}</h2>
 

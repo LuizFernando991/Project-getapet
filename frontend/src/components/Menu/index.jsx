@@ -37,7 +37,7 @@ export const Menu =()=>{
     return(
         <Styled.Menu onClick={()=>{setIsOpen(!isOpen)}}>
             {user.image ?
-                <img src={`http://localhost:5000/images/users/${user.image}`} alt={user.name} />
+                <img src={`${process.env.REACT_APP_API}/images/users/${user.image}`} alt={user.name} />
                 :
                 <img src={UserImage} alt={user.name} />
             }

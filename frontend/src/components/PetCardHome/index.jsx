@@ -8,7 +8,7 @@ export const PetCardHome = ({pet})=>{
     return(
         <>
             <Styled.CardContainer>
-                <img src={`http://localhost:5000/images/pets/${pet.images[0]}`} alt={pet.name} />
+                <img src={`${process.env.REACT_APP_API}/images/pets/${pet.images[0]}`} alt={pet.name} />
                 <div>
                     <h3>{pet.name}</h3>
                     <p>Idade: {pet.age}</p>

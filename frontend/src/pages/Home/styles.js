@@ -49,7 +49,7 @@ export const SliderContainer = styled.div`
     `}
 
     transition: all ease-in 0.4s;
-    
+
 
 `
 
