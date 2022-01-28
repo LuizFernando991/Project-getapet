@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react"
 import { useParams } from "react-router-dom"
 import { usePet } from "../../hooks/usePet"
 import { PetImages } from "../../components/PetImages"
+import { ContactCard } from "../../components/ContactCard"
 import { useNavigate } from "react-router-dom"
 import * as Styled from "./styles"
 
@@ -9,6 +10,8 @@ export const ShowPet = ()=>{
 
     const { getPetById, getSchedule } = usePet()
     const [ pet, setPet ] = useState('')
+    const [ isActived, setIsActived ] = useState(false)
+    const [ msg, setMsg ] = useState('')
     const { id } = useParams()
     const isMounted = useRef(true)
     const navigate = useNavigate()
@@ -30,10 +33,15 @@ export const ShowPet = ()=>{
         }
         const message  = await getSchedule(id)
 
-        console.log(message)
+
+        if(message[1] === 'success'){
+            setMsg(message[0])
+            setIsActived(true)
+        }
     }
 
     return(
+        <>
         <Styled.PetContainer>
             <PetImages pet={pet} />
             <Styled.PetInformationContainer>
@@ -49,5 +57,10 @@ export const ShowPet = ()=>{
                 {pet.available ? <button onClick={()=>handleButtonClick(id)}>Agendar uma visita</button> : <Styled.Adopted>Adotado!</Styled.Adopted>}
             </Styled.PetInformationContainer>
         </Styled.PetContainer>
+        {
+            isActived ? <ContactCard setIsActived={setIsActived} msg={msg}/> : ''
+        }
+        
+        </>
     )
 }
