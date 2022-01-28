@@ -18,7 +18,7 @@ export const useAuth= ()=>{
         const token = localStorage.getItem('token')
 
         if(token){
-            api.defaults.headers.Authorizarion = `Bearer ${JSON.parse(token)}`
+            api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`
             setAuthenticated(true)
         }
     }, [])    
@@ -53,35 +53,30 @@ export const useAuth= ()=>{
 
     const authUser = async(data)=>{
 
-
+        localStorage.setItem('token', JSON.stringify(data.token))
         setAuthenticated(true)
 
-        localStorage.setItem('token', JSON.stringify(data.token))
-
         navigate('/')
+
+        console.log(localStorage.getItem('token'))
+
+        // window.location.reload()
 
 
     }
 
     const logout =()=>{
 
-        let msgText = 'Logout realizado com sucesso'
-        let msgType = 'success'
-
         setAuthenticated(false)
         localStorage.removeItem('token')
-        api.defaults.headers.Authorizarion = undefined
-
+        api.defaults.headers.Authorization = undefined
         navigate('/')
 
-        setFlashMessage(msgText, msgType)
 
     }
 
     const login = async(user)=>{
 
-        let msgText = 'Login realizado com sucesso'
-        let msgType = 'success'
 
         try{
 
@@ -91,11 +86,9 @@ export const useAuth= ()=>{
             await authUser(resData)
 
         }catch(err){
-            msgText = err.response.data.message
-            msgType = 'error'
+            console.log(err)
         }
 
-        setFlashMessage(msgText, msgType)
 
 
     }

@@ -18,7 +18,7 @@ export const Message = styled.div`
     text-align: center;
     background-color: #fff;
     padding: 1em;
-    border: 1px solid #fff;
+    border: 2px solid #f1f1f1;
     border-radius: 20px 3px 20px 3px;
     left: 0;
     right: 0;

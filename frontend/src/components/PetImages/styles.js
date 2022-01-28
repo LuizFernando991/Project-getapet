@@ -61,6 +61,7 @@ export const Images = styled.div`
         width: 100px;
         margin-bottom: 12px;
         height: 100px;
+        cursor: pointer;
     }
 `
 

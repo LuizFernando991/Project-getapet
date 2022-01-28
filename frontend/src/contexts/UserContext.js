@@ -20,6 +20,5 @@ export const UserContextProvider = ({children})=>{
     return(
         <UserContext.Provider value={{register, logout, login, edit, authenticated}}>{children}</UserContext.Provider>
 
-
     )
 }

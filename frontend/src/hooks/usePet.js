@@ -130,5 +130,27 @@ export const usePet = ()=>{
 
     }
 
-    return { createPet, removePet, getPetById, editPet, getNewPets, getAllPets }
+    const getSchedule = async(id)=>{
+
+        let msgType = 'success'
+        console.log(localStorage.getItem('token'))
+        const data = await api.patch(`/pets/schedule/${id}`, '',{
+            headers : {
+                Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
+            }
+        }).then((res)=>{
+            return res.data
+        }
+        ).catch((err)=>{
+            msgType = 'error'
+            return err.response.data
+        })
+        if(msgType === 'error'){
+            setFlashMessage(data.message, msgType)
+        }
+        
+        return [data.message, msgType]
+    }
+
+    return { createPet, removePet, getPetById, editPet, getNewPets, getAllPets, getSchedule }
 }

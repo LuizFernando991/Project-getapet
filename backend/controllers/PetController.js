@@ -275,7 +275,7 @@ module.exports = class PetController{
             return
         }
 
-        // check if user has already scjeduled a visit
+        // check if user has already scheduled a visit
 
         if(pet.adopter){
             if(pet.adopter._id.equals(user.id)){
@@ -292,7 +292,7 @@ module.exports = class PetController{
             image : user.image
         }
         
-        await pet.findByIdAndUpdate(petId, pet)
+        await Pet.findByIdAndUpdate(petId, pet)
 
         res.status(200).json({ message : `A visita foi agedada com sucesso, entre em contato com ${pet.user.name} pelo telefone ${pet.user.phone}`})
 
