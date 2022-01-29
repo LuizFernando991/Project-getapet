@@ -136,12 +136,7 @@ module.exports = class PetController{
         
         const token = getToken(req)
         const user = await getUserByToken(token)
-
-        
-        const userId = user._id.toString()
-
-        const pets = await Pet.find({ "adopter._id" : userId}).sort('-createdAt')
-
+        const pets = await Pet.find({ "adopter._id" : user._id}).sort('-createdAt')
         res.status(200).json({ pets : pets })
 
     }
@@ -277,22 +272,25 @@ module.exports = class PetController{
 
         // check if user has already scheduled a visit
 
-        if(pet.adopter){
-            if(pet.adopter._id.equals(user.id)){
-                res.status(422).json({ message : 'Você já agendou uma visita!'})
-                return
+        if(pet.adopter.length > 0){
+            for(let i = 0; i < pet.adopter.length; i++){
+                if(pet.adopter[i]._id.equals(user.id)){
+                    res.status(422).json({ message : 'Você já agendou uma visita!'})
+                    return
+                }
             }
         }
 
         // add user to pet
 
-        pet.adopter = {
+        pet.adopter.push({
             _id : user._id,
             name : user.name,
             image : user.image
-        }
+        })
         
         await Pet.findByIdAndUpdate(petId, pet)
+
 
         res.status(200).json({ message : `A visita foi agedada com sucesso, entre em contato com ${pet.user.name} pelo telefone ${pet.user.phone}`})
 

@@ -3,7 +3,6 @@ import * as Styled from './styles'
 
 export const ContactCard = ({msg, setIsActived})=>{
 
-    console.log(msg)
 
     return(
         <>

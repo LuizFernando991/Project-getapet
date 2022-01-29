@@ -8,6 +8,7 @@ import { Login } from './pages/Login'
 import { Profile } from './pages/Profile'
 import { Mypets } from './pages/Mypets'
 import { ShowPet } from './pages/ShowPet'
+import { MyAdoptions } from "./pages/MyAdoptions"
 //Components
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
@@ -42,6 +43,9 @@ export const App = ()=>{
                             }
                             {authenticated &&
                                 <Route path='/editpet/:id' element={<EditPet/>}/>  
+                            }
+                            {authenticated &&
+                                <Route path='/myadoptions' element={<MyAdoptions/>}/>  
                             }
                         </Routes>
                     </Container>

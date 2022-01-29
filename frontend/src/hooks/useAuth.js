@@ -58,11 +58,6 @@ export const useAuth= ()=>{
 
         navigate('/')
 
-        console.log(localStorage.getItem('token'))
-
-        // window.location.reload()
-
-
     }
 
     const logout =()=>{

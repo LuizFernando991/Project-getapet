@@ -11,7 +11,7 @@ export const Mypets =()=>{
     const { removePet } = usePet()
     const [ pets, setPets ] = useState([])
 
-    const [ getUserPets ] = useGetUserPets()
+    const { getUserPets } = useGetUserPets()
 
     const handleOnDeleteClick = (petId)=>{
         const updatedPets = pets.filter(pet => pet._id !== petId)

@@ -28,7 +28,9 @@ const Pet = mongoose.model('Pet', new Schema({
         type : Boolean
     },
     user: Object,
-    adopter: Object
+    adopter: {
+        type : Array,
+    }
 
 }, {timestamps : true}))
 

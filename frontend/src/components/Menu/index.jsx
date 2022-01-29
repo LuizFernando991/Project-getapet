@@ -51,6 +51,9 @@ export const Menu =()=>{
                         <Link to='/mypets'>Meus pets</Link>
                     </li>
                     <li>
+                        <Link to='/myadoptions'>Adoções</Link>
+                    </li>
+                    <li>
                         <Link to='#' onClick={handleOnLogout}>Sair</Link>
                     </li>
                 </ul>

@@ -133,7 +133,6 @@ export const usePet = ()=>{
     const getSchedule = async(id)=>{
 
         let msgType = 'success'
-        console.log(localStorage.getItem('token'))
         const data = await api.patch(`/pets/schedule/${id}`, '',{
             headers : {
                 Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
