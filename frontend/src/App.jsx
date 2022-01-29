@@ -36,7 +36,7 @@ export const App = ()=>{
                                 <Route path='/profile' exact element={<Profile/>}/>
                             }
                             {authenticated &&
-                                <Route path='/mypets' exact element={<Mypets/>}/>
+                                <Route path='/mypets' element={<Mypets/>}/>
                             }
                             {authenticated &&
                                 <Route path='/newpet' exact element={<CreatePet/>}/>  

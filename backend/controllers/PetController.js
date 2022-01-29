@@ -324,7 +324,7 @@ module.exports = class PetController{
             return
         }
 
-        pet.avaible = false
+        pet.available = false
 
         await Pet.findByIdAndUpdate(petId, pet)
 

@@ -151,5 +151,23 @@ export const usePet = ()=>{
         return [data.message, msgType]
     }
 
-    return { createPet, removePet, getPetById, editPet, getNewPets, getAllPets, getSchedule }
+    const concludeAdoption = async(id)=>{
+        let msgType = 'success'
+        const data = await api.patch(`/pets/conclude/${id}`, '',{
+            headers : {
+                Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))}`,
+            }
+        }).then((res)=>{
+            return res.data
+        }
+        ).catch((err)=>{
+            msgType = 'error'
+            return err.response.data
+        })
+        
+        setFlashMessage(data.message, msgType)
+        
+    }
+
+    return { createPet, removePet, getPetById, editPet, getNewPets, getAllPets, getSchedule, concludeAdoption }
 }

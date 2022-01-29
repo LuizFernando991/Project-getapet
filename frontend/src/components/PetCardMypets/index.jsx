@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { usePet } from '../../hooks/usePet'
 import { Link } from 'react-router-dom'
 import * as Styled from './styles'
 
@@ -5,8 +7,16 @@ import * as Styled from './styles'
 
 export const PetCardMypets = ({pet, onClick})=>{
 
-    
+    const { concludeAdoption } = usePet()
 
+    const [ isAvailable, SetIsAvailable ] = useState(pet.available)
+
+    const handleOnConcludeButtonClick = ()=>{
+        concludeAdoption(pet._id)
+        SetIsAvailable(false)
+
+    }
+    
     return (
         <Styled.Card>
             <img src={`${process.env.REACT_APP_API}/images/pets/${pet.images[0]}`} alt={pet.name} />
@@ -15,8 +25,10 @@ export const PetCardMypets = ({pet, onClick})=>{
 
             <p>Idade: {pet.age} {pet.age > 1 ? 'Anos' : 'Ano'}</p>
 
-            {pet.adopter &&
-                <button>Concluir adoção</button>
+            {isAvailable ?
+                <button onClick={handleOnConcludeButtonClick}>Concluir adoção</button>
+                :
+                <h3>Adotado!</h3>
             }
             <Styled.ButtonContainer>
                 <Link to={`/editpet/${pet._id}`}>Editar</Link>

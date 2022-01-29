@@ -24,11 +24,25 @@ export const Card = styled.div`
         color: #19ACE7;
         font-weight: bold;
     }
+    h3{
+        color: #FFFF00;
+    }
 
     p{
         color: #19ACE7;
         font-weight: bold;
         font-size: 12px;
+    }
+
+    button{
+        border: none;
+        font-weight: bold;
+        color: #fff;
+        border-radius: 5px;
+        text-decoration: none;
+        background-color: #19ACE7;
+        padding: 8px;
+        cursor: pointer;
     }
 
     
